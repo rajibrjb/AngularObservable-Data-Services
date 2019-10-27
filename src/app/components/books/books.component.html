@@ -1,0 +1,62 @@
+<section class="py-5 bg-info py-5">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <app-form></app-form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-warning py-5">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-5 p-2">
+
+              <div class="card shadow">
+                <div class="card-body">
+                    <div class="row">
+
+                        <h5>Single Book: </h5>
+                        <p> {{ book.name }}</p>
+                        <br>
+
+                    </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-7 p-2">
+                <div >
+                    <div class="card shadow">
+                        <h5 class="card-header">Books List</h5>
+                        <div class="card-body">
+                            <div class="table-responsive text-nowrap">
+                                <table class="table table-striped custab">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                            <tr *ngFor="let book of books">
+                                                <td>{{ book.id }}</td>
+                                                <td>{{ book.name }}</td>
+                                                <td>{{ book.description }}</td>
+                                                <td class="text-center"> <button (click)="delete(book.id)" class="bg-danger">x</button></td>
+                                            </tr>
+                                    </table>
+                              </div>
+                        </div>
+                      </div>
+
+
+                  </div>
+
+
+              </div>
+
+        </div>
+    </div>
+</section>

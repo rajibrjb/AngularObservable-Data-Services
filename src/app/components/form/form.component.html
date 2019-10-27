@@ -1,0 +1,24 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <input type="text"
+          [ngClass]="{'is-invalid': bookForm.get('name').errors
+            && bookForm.get('name').touched}"
+          class="form-control"
+          formControlName="name"
+          placeholder="Name --- Min length 4 Max 8">
+          <div class="invalid-feedback" *ngIf="bookForm.get('name').touched && bookForm.get('name').hasError('required')">Name as is required</div>
+
+      </div>
+      <div class="form-group">
+          <input type="text"
+            [ngClass]="{'is-invalid': bookForm.get('description').errors
+              && bookForm.get('description').touched}"
+            class="form-control"
+            formControlName="description"
+            placeholder="Description ---  Min length 4 Max 255">
+            <div class="invalid-feedback" *ngIf="bookForm.get('description').touched && bookForm.get('description').hasError('required')">Description as is required</div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">Add Book
+          </button>
+</form>
